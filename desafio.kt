@@ -2,6 +2,7 @@
 
 enum class Nivel { BASICO, INTERMEDIARIO, DIFICIL }
 
+//Gerador de Ids
 object Identifier{
 
     val id : MutableSet<Int> = mutableSetOf()
@@ -22,17 +23,15 @@ data class Formacao(val nome: String, var conteudos: List<ConteudoEducacional>) 
 
     private val inscritos = mutableListOf<Usuario>()
 
-    fun getListMatricula() : MutableList<Usuario>{
-            return inscritos
-        }
+    fun getListMatricula(): MutableList<Usuario>{
+        return inscritos
+    }
 
     fun matricular(usuario: Usuario) {
         inscritos.add(usuario)
-
-        TODO("Utilize o parâmetro $usuario para simular uma matrícula (usar a lista de $inscritos).")
     }
 }
-
+//Função que engloba a matricula em Formacao e Usuario
 fun Usuario.matricular(formacao: Formacao) {
     formacao.matricular(this)
     this.formacao.add(formacao.nome)
