@@ -21,6 +21,11 @@ data class Formacao(val nome: String, var conteudos: List<ConteudoEducacional>) 
     }
 }
 
+fun Usuario.matricular(formacao: Formacao) {
+    formacao.matricular(this)
+    this.formacao.add(formacao.nome)
+}
+
 fun main() {
 
     TODO("Analise as classes modeladas para este domínio de aplicação e pense em formas de evoluí-las.")
