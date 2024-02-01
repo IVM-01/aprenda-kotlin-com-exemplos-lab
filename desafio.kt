@@ -4,7 +4,7 @@ enum class Nivel { BASICO, INTERMEDIARIO, DIFICIL }
 
 data class Usuario(val name: String, val id: Int, val password: String)
 
-data class ConteudoEducacional(var nome: String, val duracao: Int = 60)
+data class ConteudoEducacional(var nome: String, val duracaoHoras: Int = 1, val nivel: Nivel)
 
 data class Formacao(val nome: String, var conteudos: List<ConteudoEducacional>) {
 
@@ -18,6 +18,7 @@ data class Formacao(val nome: String, var conteudos: List<ConteudoEducacional>) 
 }
 
 fun main() {
+
     TODO("Analise as classes modeladas para este domínio de aplicação e pense em formas de evoluí-las.")
     TODO("Simule alguns cenários de teste. Para isso, crie alguns objetos usando as classes em questão.")
 }
