@@ -7,6 +7,7 @@ data class Usuario(val name: String, val id: Int, val password: String)
 data class ConteudoEducacional(var nome: String, val duracaoHoras: Int = 1, val nivel: Nivel)
 
 data class Formacao(val nome: String, var conteudos: List<ConteudoEducacional>) {
+
     val inscritos = mutableListOf<Usuario>()
 
     fun getListMatricula(){
