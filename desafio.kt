@@ -2,6 +2,18 @@
 
 enum class Nivel { BASICO, INTERMEDIARIO, DIFICIL }
 
+object Identifier{
+
+    val id : MutableSet<Int> = mutableSetOf()
+
+    fun add(id : Int) : Int{
+        return if(this.id.contains(id)) {throw ClassCastException("Id de usuário existente, atribua outro")}
+        else{this.id.add(id)
+            id
+        }
+    }
+}
+
 data class Usuario(val name: String, val id: Int, val password: String, var formacao : MutableList<String> = mutableListOf())
 
 data class ConteudoEducacional(var nome: String, val duracaoHoras: Int = 1, val nivel: Nivel)
