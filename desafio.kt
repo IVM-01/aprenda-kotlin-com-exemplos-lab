@@ -14,7 +14,7 @@ object Identifier{
     }
 }
 
-data class Usuario(val name: String, val id: Int, val password: String, var formacao : MutableList<String> = mutableListOf())
+data class Usuario(val name: String, val id: Int, private val password: String, var formacao : MutableList<String> = mutableListOf())
 
 data class ConteudoEducacional(var nome: String, val duracaoHoras: Int = 1, val nivel: Nivel)
 
