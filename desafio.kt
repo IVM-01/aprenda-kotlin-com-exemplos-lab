@@ -39,6 +39,37 @@ fun Usuario.matricular(formacao: Formacao) {
 
 fun main() {
 
-    TODO("Analise as classes modeladas para este domínio de aplicação e pense em formas de evoluí-las.")
-    TODO("Simule alguns cenários de teste. Para isso, crie alguns objetos usando as classes em questão.")
+    /*
+    Nesse exemplo crio dois cursos onde o João se candidata em dois,
+    A Maria e o Pedro em um,
+    Porém o Pedro erra no cadastro e deixa a senha em branco.
+    * */
+
+    val bkKotlin = Formacao("Backend Kotlin", listOf(
+        ConteudoEducacional("Fundamentos em Kotlin", 3, Nivel.BASICO),
+        ConteudoEducacional("Funções em Kotlin", 2, Nivel.INTERMEDIARIO),
+        ConteudoEducacional("Manipulação de Dados em Kotlin", 4, Nivel.DIFICIL)
+    ))
+
+    val bkJava = Formacao("Backend Java", listOf(
+        ConteudoEducacional("Fundamentos em Java", 3, Nivel.BASICO),
+        ConteudoEducacional("Funções em Java", 3, Nivel.INTERMEDIARIO),
+        ConteudoEducacional("Manipulação de Dados em Java", 5, Nivel.DIFICIL)
+    ))
+
+    val joao = try{ Usuario("joaoPlay", Identifier.add(1), "12345")} catch (e : Exception){ throw NullPointerException("Nome ou senha de usuário vazio") }
+    val maria = try{ Usuario("mariaBonita", Identifier.add(2), "04052001")} catch (e : Exception){ throw NullPointerException("Nome ou senha de usuário vazio") }
+    //val pedro = try{ Usuario("pedroBr", Identifier.add(3), null)} catch (e : Throwable){ throw NullPointerException("Nome ou senha de usuário vazio") }
+
+    joao.matricular(bkKotlin)
+    maria.matricular(bkKotlin)
+    //pedro.matricular(bkKotlin)
+
+    joao.matricular(bkJava)
+
+    println(bkKotlin.getListMatricula())
+    println(bkJava.getListMatricula())
+    println(joao)
+    println(maria)
+    //println(pedro)
 }
